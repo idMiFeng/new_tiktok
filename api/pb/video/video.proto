@@ -1,0 +1,151 @@
+syntax = "proto3";  // 指定使用的语法版本 (proto3)。
+package pb;  // 定义包名。
+
+option go_package = "./;video";  // 指定生成的 Go 文件的输出位置和包名。
+
+// 表示视频的消息。
+message Video {
+  int64 Id = 1;  // 视频的唯一标识符。
+  int64 AuthId = 2;  // 上传视频的作者ID。
+  string PlayUrl = 3;  // 视频播放地址的 URL。
+  string CoverUrl = 4;  // 视频封面图片的 URL。
+  int64 FavoriteCount = 5;  // 视频被收藏的次数。
+  int64 CommentCount = 6;  // 视频的评论数量。
+  bool IsFavorite = 7;  // 指示当前用户是否已收藏该视频。
+  string Title = 8;  // 视频的标题。
+}
+
+// 表示视频评论的消息。
+message Comment {
+  int64 Id = 1;  // 评论的唯一标识符。
+  int64 UserId = 2;  // 发表评论的用户ID。
+  string Content = 3;  // 评论内容。
+  string CreateDate = 4;  // 评论的创建日期。
+}
+
+// 请求视频流的消息。
+message FeedRequest {
+  int64 LatestTime = 1;  // 可选参数，限制返回视频的最新投稿时间戳（精确到秒），不填表示当前时间。
+  int64 UserId = 2;  // 发起请求的用户ID。
+}
+
+// 返回视频流的消息。
+message FeedResponse {
+  int64 StatusCode = 1;  // 状态码。
+  string StatusMsg = 2;  // 状态消息。
+  repeated Video VideoList = 3;  // 视频列表。
+  int64 NextTime = 4;  // 下一个视频的时间戳。
+}
+
+// 发布视频的请求消息。
+message PublishActionRequest {
+  int64 UserId = 1;  // 用户ID。
+  bytes Data = 2;  // 视频数据。
+  string Title = 3;  // 视频标题。
+}
+
+// 发布视频的响应消息。
+message PublishActionResponse {
+  int64 StatusCode = 1;  // 状态码。
+  string StatusMsg = 2;  // 状态消息。
+}
+
+// 请求发布视频列表的消息。
+message PublishListRequest {
+  int64 UserId = 1;  // 用户ID。
+}
+
+// 返回发布视频列表的消息。
+message PublishListResponse {
+  int64 StatusCode = 1;  // 状态码。
+  string StatusMsg = 2;  // 状态消息。
+  repeated Video VideoList = 3;  // 发布的视频列表。
+}
+
+// 赞操作的请求消息。
+message FavoriteActionRequest {
+  int64 UserId = 1;  // 用户ID。
+  int64 VideoId = 2;  // 视频ID。
+  int64 ActionType = 3;  // 动作类型，1-点赞，2-取消点赞。
+}
+
+// 赞操作的响应消息。
+message FavoriteActionResponse {
+  int64 StatusCode = 1;  // 状态码。
+  string StatusMsg = 2;  // 状态消息。
+}
+
+// 请求喜欢视频列表的消息。
+message FavoriteListRequest {
+  int64 UserId = 1;  // 用户ID。
+}
+
+// 返回喜欢视频列表的消息。
+message FavoriteListResponse {
+  int64 StatusCode = 1;  // 状态码。
+  string StatusMsg = 2;  // 状态消息。
+  repeated Video VideoList = 3;  // 喜欢的视频列表。
+}
+
+// 评论操作的请求消息。
+message CommentActionRequest {
+  int64 UserId = 1;  // 用户ID。
+  int64 VideoId = 2;  // 视频ID。
+  int64 ActionType = 3;  // 动作类型，1-发布评论，2-删除评论。
+  string CommentText = 4;  // 可选，用户填写的评论内容，在action_type=1时使用。
+  int64 CommentId = 5;  // 可选，要删除的评论ID，在action_type=2时使用。
+}
+
+// 评论操作的响应消息。
+message CommentActionResponse {
+  int64 StatusCode = 1;  // 状态码。
+  string StatusMsg = 2;  // 状态消息。
+  Comment Comment = 3;  // 评论内容。
+}
+
+// 请求评论列表的消息。
+message CommentListRequest {
+  int64 VideoId = 1;  // 视频ID。
+}
+
+// 返回评论列表的消息。
+message CommentListResponse {
+  int64 StatusCode = 1;  // 状态码。
+  string StatusMsg = 2;  // 状态消息。
+  repeated Comment CommentList = 3;  // 评论列表。
+}
+
+// 视频计数消息。
+message Count {
+  int64 TotalFavorited = 1;  // 获得点赞的总数。
+  int64 WorkCount = 2;  // 作品数量。
+  int64 FavoriteCount = 3;  // 喜欢的数量。
+}
+
+// 请求视频总计数的消息。
+message CountRequest {
+  repeated int64 UserIds = 1;  // 传入一个用户ID列表。
+}
+
+// 返回视频总计数的消息。
+message CountResponse {
+  int64 StatusCode = 1;  // 状态码。
+  string StatusMsg = 2;  // 状态消息。
+  repeated Count counts = 3;  // 视频计数信息列表。
+}
+
+// 视频服务。
+service VideoService {
+  rpc Feed(FeedRequest) returns (FeedResponse);  // 获取视频流。
+  rpc PublishAction(PublishActionRequest) returns (PublishActionResponse);  // 发布视频。
+  rpc PublishList(PublishListRequest) returns (PublishListResponse);  // 获取发布视频列表。
+
+  rpc FavoriteAction(FavoriteActionRequest) returns (FavoriteActionResponse);  // 进行点赞操作。
+  rpc FavoriteList(FavoriteListRequest) returns (FavoriteListResponse);  // 获取喜欢视频列表。
+
+  rpc CommentAction(CommentActionRequest) returns (CommentActionResponse);  // 进行评论操作。
+  rpc CommentList(CommentListRequest) returns (CommentListResponse);  // 获取评论列表。
+
+  // 根据用户ID列表，返回计数信息。
+  rpc CountInfo(CountRequest) returns (CountResponse);  // 获取视频计数信息。
+}

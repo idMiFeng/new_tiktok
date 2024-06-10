@@ -1,0 +1,31 @@
+server:
+  name: "video_service"  # 服务名称
+  address: "127.0.0.1:3002"  # 服务地址
+
+log:
+  level: "debug"
+  filename: "video_service.log"
+  max_size: 200
+  max_age: 30
+  max_backups: 7
+
+mysql:
+  host: "139.196.81.60"
+  port: 3306
+  user: "mysql"
+  password: "123456"
+  dbname: "tiktok"
+  max_open_conns: 100
+  max_idle_conns: 10
+
+consul:
+  address: "139.196.81.60:8500"
+
+redis:
+  address: "139.196.81.60:6379"
+
+rocketmq:
+  addr: 139.196.81.60:9876
+  group_id: video_srv
+  topic:
+    video_push: video_push

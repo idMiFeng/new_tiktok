@@ -1,0 +1,50 @@
+syntax="proto3";
+package pb;
+option go_package = "../;user";  // 此处格式为<生成的文件存放位置;生成文件的包名>
+
+//  protoc -I internal/service/pb --go_out=./internal/service/ --go_opt=paths=source_relative --go-grpc_out=./internal/service/ --go-grpc_opt=paths=source_relative internal/service/pb/*.proto
+//  或者分开使用
+//  protoc -I ./pb/user --go_out=./ ./pb/user/*.proto
+//  protoc -I ./pb/user --go-grpc_out=./  ./pb/user/*.proto
+
+message UserRequest{
+  string Username = 1;  // 账号
+  string Password = 2;  // 密码
+}
+
+message UserResponse{
+  int64  StatusCode = 1;
+  string StatusMsg = 2;
+  int64 UserId = 3;  // 用户id
+}
+
+message User {
+  int64 Id = 1;
+  string Name = 2;
+  string Avatar = 3;  // 用户头像
+  string BackgroundImage = 4;  // 用户背景图
+  string Signature = 5;  // 用户签名
+  int64 FollowCount = 6; // 关注总数
+  int64 FollowerCount = 7; // 粉丝总数
+  bool IsFollow = 8; // true-已关注，false-未关注
+  int64 TotalFavorited = 9; //获赞数量
+  int64 WorkCount = 10; //作品数量
+  int64 FavoriteCount = 11; //点赞数量
+}
+
+message UserInfoRequest {
+  repeated  int64 UserIds = 1;   // 传入一个userId切片
+}
+
+message UserInfoResponse {
+  int64  StatusCode = 1;
+  string StatusMsg = 2;
+  repeated User Users = 3;  // 用户信息
+}
+
+
+service UserService{
+  rpc UserRegister(UserRequest) returns(UserResponse);
+  rpc UserLogin(UserRequest) returns(UserResponse);
+  rpc UserInfo(UserInfoRequest) returns(UserInfoResponse);
+}

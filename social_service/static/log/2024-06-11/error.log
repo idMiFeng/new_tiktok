@@ -1,0 +1,20 @@
+2024-06-11 00:48:29	[31mERROR[0m	social_service/main.go:154	gRPC server start  [::]:53520
+
+2024-06-11 00:48:29	[31mERROR[0m	registry/consul.go:48	Service name is not configured
+
+2024-06-11 00:48:29	[31mERROR[0m	social_service/main.go:59	service name is not configured
+
+2024-06-11 00:49:25	[31mERROR[0m	registry/consul.go:69	192.168.124.8 3003
+
+2024-06-11 00:49:46	[31mERROR[0m	registry/consul.go:85	Consul service register failed: Put "http://139.196.81.60:2379/v1/agent/service/register": dial tcp 139.196.81.60:2379: connectex: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+
+2024-06-11 00:49:46	[31mERROR[0m	social_service/main.go:59	Put "http://139.196.81.60:2379/v1/agent/service/register": dial tcp 139.196.81.60:2379: connectex: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+
+2024-06-11 00:53:46	[31mERROR[0m	registry/consul.go:85	Consul service register failed: Unexpected response code: 500 (mkdir /consul/data/checks: no such file or directory)
+
+2024-06-11 00:53:46	[31mERROR[0m	social_service/main.go:59	Unexpected response code: 500 (mkdir /consul/data/checks: no such file or directory)
+
+2024-06-11 00:55:04	[31mERROR[0m	registry/consul.go:85	Consul service register failed: Unexpected response code: 500 (mkdir /consul/data/checks: no such file or directory)
+
+2024-06-11 00:55:04	[31mERROR[0m	social_service/main.go:59	Unexpected response code: 500 (mkdir /consul/data/checks: no such file or directory)
+

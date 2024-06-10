@@ -1,0 +1,52 @@
+2024-06-07 03:02:33	[31mERROR[0m	user_service/main.go:38	Error 1049 (42000): Unknown database 'tiktok'
+
+2024-06-07 03:03:22	[31mERROR[0m	user_service/main.go:67	consul service register failed: Put "http://127.0.0.1:2379/v1/agent/service/register": dial tcp 127.0.0.1:2379: connectex: No connection could be made because the target machine actively refused it.
+
+2024-06-07 03:04:16	[31mERROR[0m	user_service/main.go:67	consul service register failed: Unexpected response code: 400 (Missing service name)
+
+2024-06-07 03:07:34	[31mERROR[0m	user_service/main.go:68	Service name is not configured
+
+2024-06-07 03:07:34	[31mERROR[0m	user_service/main.go:45	user_service start
+
+2024-06-07 04:09:18	[31mERROR[0m	registry/consul.go:69	192.168.124.8 3001
+
+2024-06-07 04:10:12	[31mERROR[0m	registry/consul.go:69	192.168.124.8 3001
+
+2024-06-07 04:12:24	[31mERROR[0m	registry/consul.go:69	192.168.124.8 3001
+
+2024-06-07 04:13:04	[31mERROR[0m	user_service/main.go:155	gRPC server start  [::]:3001
+
+2024-06-07 04:13:04	[31mERROR[0m	registry/consul.go:69	192.168.124.8 3001
+
+2024-06-07 04:15:25	[31mERROR[0m	user_service/main.go:155	gRPC server start  0.0.0.0:3001
+
+2024-06-07 04:15:25	[31mERROR[0m	registry/consul.go:69	192.168.124.8 3001
+
+2024-06-07 04:16:36	[31mERROR[0m	user_service/main.go:155	gRPC server start  127.0.0.1:3001
+
+2024-06-07 04:16:36	[31mERROR[0m	registry/consul.go:69	192.168.124.8 3001
+
+2024-06-07 04:19:31	[31mERROR[0m	user_service/main.go:154	gRPC server start  127.0.0.1:3001
+
+2024-06-07 04:19:31	[31mERROR[0m	registry/consul.go:69	192.168.124.8 3001
+
+2024-06-07 04:20:08	[31mERROR[0m	user_service/main.go:154	gRPC server start  [::]:3001
+
+2024-06-07 04:20:08	[31mERROR[0m	registry/consul.go:69	192.168.124.8 3001
+
+2024-06-07 04:20:46	[31mERROR[0m	user_service/main.go:154	gRPC server start  [::]:3001
+
+2024-06-07 04:20:46	[31mERROR[0m	registry/consul.go:69	192.168.124.8 3001
+
+2024-06-07 04:22:08	[31mERROR[0m	user_service/main.go:154	gRPC server start  [::]:3001
+
+2024-06-07 04:22:08	[31mERROR[0m	registry/consul.go:69	192.168.124.8 3001
+
+2024-06-07 04:23:02	[31mERROR[0m	user_service/main.go:154	gRPC server start  [::]:3001
+
+2024-06-07 04:23:02	[31mERROR[0m	registry/consul.go:69	192.168.124.8 3001
+
+2024-06-07 04:29:29	[31mERROR[0m	user_service/main.go:154	gRPC server start  [::]:3001
+
+2024-06-07 04:29:29	[31mERROR[0m	registry/consul.go:69	192.168.124.8 3001
+

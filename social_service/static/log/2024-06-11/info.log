@@ -1,0 +1,28 @@
+2024-06-11 00:49:25	[34mINFO[0m	social_service/main.go:154	gRPC server start  127.0.0.1:3003
+
+2024-06-11 00:49:25	[34mINFO[0m	registry/consul.go:79	Registering service with name: social_service
+
+2024-06-11 00:49:25	[34mINFO[0m	registry/consul.go:80	Service address: 127.0.0.1:3003
+
+2024-06-11 00:49:25	[34mINFO[0m	registry/consul.go:81	Service ID: user_service-127.0.0.1:3003
+
+2024-06-11 00:53:46	[34mINFO[0m	social_service/main.go:154	gRPC server start  127.0.0.1:3003
+
+2024-06-11 00:53:46	[34mINFO[0m	registry/consul.go:69	192.168.124.8 3003
+
+2024-06-11 00:53:46	[34mINFO[0m	registry/consul.go:79	Registering service with name: social_service
+
+2024-06-11 00:53:46	[34mINFO[0m	registry/consul.go:80	Service address: 127.0.0.1:3003
+
+2024-06-11 00:53:46	[34mINFO[0m	registry/consul.go:81	Service ID: social_service-127.0.0.1:3003
+
+2024-06-11 00:55:04	[34mINFO[0m	social_service/main.go:154	gRPC server start  127.0.0.1:3003
+
+2024-06-11 00:55:04	[34mINFO[0m	registry/consul.go:69	192.168.124.8 3003
+
+2024-06-11 00:55:04	[34mINFO[0m	registry/consul.go:79	Registering service with name: social_service
+
+2024-06-11 00:55:04	[34mINFO[0m	registry/consul.go:80	Service address: 127.0.0.1:3003
+
+2024-06-11 00:55:04	[34mINFO[0m	registry/consul.go:81	Service ID: social_service-127.0.0.1:3003
+

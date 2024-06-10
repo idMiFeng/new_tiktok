@@ -1,0 +1,91 @@
+syntax = "proto3";
+
+package social;
+option go_package = "./;social";
+
+// 关注请求与响应
+message FollowRequest {
+  int64 UserId = 1;
+  int64 ToUserId = 2;
+  int32 ActionType = 3;
+}
+
+message FollowResponse {
+  int32 StatusCode = 1;
+  string StatusMsg = 2;
+}
+
+// 关注列表请求与响应
+message FollowListRequest {
+  int64 UserId = 1;
+}
+
+message FollowListResponse {
+  int32 StatusCode = 1;
+  string StatusMsg = 2;
+  repeated int64 UserId = 3;
+}
+
+// 关注信息请求与响应
+message FollowInfoRequest {
+  int64 UserId = 1;
+  repeated int64 ToUserId = 2;
+}
+
+message FollowInfo {
+  bool IsFollow = 1;
+  int64 FollowCount = 2;
+  int64 FollowerCount = 3;
+  int64 ToUserId = 4;
+}
+
+message FollowInfoResponse {
+  int32 StatusCode = 1;
+  string StatusMsg = 2;
+  repeated FollowInfo FollowInfo = 3;
+}
+
+// 消息请求与响应
+message PostMessageRequest {
+  int64 UserId = 1;
+  int64 ToUserId = 2;
+  int32 ActionType = 3;
+  string Content = 4;
+}
+
+message PostMessageResponse {
+  int32 StatusCode = 1;
+  string StatusMsg = 2;
+}
+
+message GetMessageRequest {
+  int64 UserId = 1;
+  int64 ToUserId = 2;
+  int64 PreMsgTime = 3;
+}
+
+message Message {
+  int64 Id = 1;
+  int64 UserId = 2;
+  int64 ToUserId = 3;
+  string Content = 4;
+  int64 CreatedAt = 5;
+}
+
+message GetMessageResponse {
+  int32 StatusCode = 1;
+  string StatusMsg = 2;
+  repeated Message MessageList = 3;
+}
+
+// 社交服务
+service SocialService {
+  rpc FollowAction(FollowRequest) returns (FollowResponse);
+  rpc GetFollowList(FollowListRequest) returns (FollowListResponse);
+  rpc GetFollowerList(FollowListRequest) returns (FollowListResponse);
+  rpc GetFriendList(FollowListRequest) returns (FollowListResponse);
+  rpc GetFollowInfo(FollowInfoRequest) returns (FollowInfoResponse);
+
+  rpc PostMessage(PostMessageRequest) returns (PostMessageResponse);
+  rpc GetMessage(GetMessageRequest) returns (GetMessageResponse);
+}

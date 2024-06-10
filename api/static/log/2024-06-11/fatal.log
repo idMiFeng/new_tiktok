@@ -1,0 +1,6 @@
+2024-06-11 03:16:18	[31mFATAL[0m	api/main.go:44	启动失败...
+
+2024-06-11 03:17:06	[31mFATAL[0m	api/main.go:44	启动失败...
+
+2024-06-11 03:17:52	[31mFATAL[0m	api/main.go:43	启动失败... listen tcp 139.196.81.60:8500: bind: The requested address is not valid in its context.
+

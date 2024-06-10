@@ -1,0 +1,98 @@
+2024-06-07 03:11:05	[34mINFO[0m	user_service/main.go:83	Registering service with name: user_service
+
+2024-06-07 03:11:05	[34mINFO[0m	user_service/main.go:84	Service address: 127.0.0.1:3001
+
+2024-06-07 03:11:05	[34mINFO[0m	user_service/main.go:85	Service ID: user_service-127.0.0.1:3001
+
+2024-06-07 03:11:05	[34mINFO[0m	user_service/main.go:102	Starting gRPC server on address: 127.0.0.1:3001
+
+2024-06-07 04:03:51	[34mINFO[0m	registry/consul.go:79	Registering service with name: user_service
+
+2024-06-07 04:03:51	[34mINFO[0m	registry/consul.go:80	Service address: 127.0.0.1:3001
+
+2024-06-07 04:03:51	[34mINFO[0m	registry/consul.go:81	Service ID: user_service-127.0.0.1:3001
+
+2024-06-07 04:06:21	[34mINFO[0m	registry/consul.go:79	Registering service with name: user_service
+
+2024-06-07 04:06:21	[34mINFO[0m	registry/consul.go:80	Service address: 127.0.0.1:3001
+
+2024-06-07 04:06:21	[34mINFO[0m	registry/consul.go:81	Service ID: user_service-127.0.0.1:3001
+
+2024-06-07 04:08:12	[34mINFO[0m	registry/consul.go:79	Registering service with name: user_service
+
+2024-06-07 04:08:12	[34mINFO[0m	registry/consul.go:80	Service address: 127.0.0.1:3001
+
+2024-06-07 04:08:12	[34mINFO[0m	registry/consul.go:81	Service ID: user_service-127.0.0.1:3001
+
+2024-06-07 04:09:18	[34mINFO[0m	registry/consul.go:79	Registering service with name: user_service
+
+2024-06-07 04:09:18	[34mINFO[0m	registry/consul.go:80	Service address: 127.0.0.1:3001
+
+2024-06-07 04:09:18	[34mINFO[0m	registry/consul.go:81	Service ID: user_service-127.0.0.1:3001
+
+2024-06-07 04:10:12	[34mINFO[0m	registry/consul.go:79	Registering service with name: user_service
+
+2024-06-07 04:10:12	[34mINFO[0m	registry/consul.go:80	Service address: 0.0.0.0:3001
+
+2024-06-07 04:10:12	[34mINFO[0m	registry/consul.go:81	Service ID: user_service-0.0.0.0:3001
+
+2024-06-07 04:12:24	[34mINFO[0m	registry/consul.go:79	Registering service with name: user_service
+
+2024-06-07 04:12:24	[34mINFO[0m	registry/consul.go:80	Service address: 0.0.0.0:3001
+
+2024-06-07 04:12:24	[34mINFO[0m	registry/consul.go:81	Service ID: user_service-0.0.0.0:3001
+
+2024-06-07 04:13:04	[34mINFO[0m	registry/consul.go:79	Registering service with name: user_service
+
+2024-06-07 04:13:04	[34mINFO[0m	registry/consul.go:80	Service address: 0.0.0.0:3001
+
+2024-06-07 04:13:04	[34mINFO[0m	registry/consul.go:81	Service ID: user_service-0.0.0.0:3001
+
+2024-06-07 04:15:25	[34mINFO[0m	registry/consul.go:79	Registering service with name: user_service
+
+2024-06-07 04:15:25	[34mINFO[0m	registry/consul.go:80	Service address: 0.0.0.0:3001
+
+2024-06-07 04:15:25	[34mINFO[0m	registry/consul.go:81	Service ID: user_service-0.0.0.0:3001
+
+2024-06-07 04:16:36	[34mINFO[0m	registry/consul.go:79	Registering service with name: user_service
+
+2024-06-07 04:16:36	[34mINFO[0m	registry/consul.go:80	Service address: 127.0.0.1:3001
+
+2024-06-07 04:16:36	[34mINFO[0m	registry/consul.go:81	Service ID: user_service-127.0.0.1:3001
+
+2024-06-07 04:19:31	[34mINFO[0m	registry/consul.go:79	Registering service with name: user_service
+
+2024-06-07 04:19:31	[34mINFO[0m	registry/consul.go:80	Service address: 127.0.0.1:3001
+
+2024-06-07 04:19:31	[34mINFO[0m	registry/consul.go:81	Service ID: user_service-127.0.0.1:3001
+
+2024-06-07 04:20:08	[34mINFO[0m	registry/consul.go:79	Registering service with name: user_service
+
+2024-06-07 04:20:08	[34mINFO[0m	registry/consul.go:80	Service address: 0.0.0.0:3001
+
+2024-06-07 04:20:08	[34mINFO[0m	registry/consul.go:81	Service ID: user_service-0.0.0.0:3001
+
+2024-06-07 04:20:46	[34mINFO[0m	registry/consul.go:79	Registering service with name: user_service
+
+2024-06-07 04:20:46	[34mINFO[0m	registry/consul.go:80	Service address: 0.0.0.0:3001
+
+2024-06-07 04:20:46	[34mINFO[0m	registry/consul.go:81	Service ID: user_service-0.0.0.0:3001
+
+2024-06-07 04:22:08	[34mINFO[0m	registry/consul.go:79	Registering service with name: user_service
+
+2024-06-07 04:22:08	[34mINFO[0m	registry/consul.go:80	Service address: 0.0.0.0:3001
+
+2024-06-07 04:22:08	[34mINFO[0m	registry/consul.go:81	Service ID: user_service-0.0.0.0:3001
+
+2024-06-07 04:23:02	[34mINFO[0m	registry/consul.go:79	Registering service with name: user_service
+
+2024-06-07 04:23:02	[34mINFO[0m	registry/consul.go:80	Service address: 0.0.0.0:3001
+
+2024-06-07 04:23:02	[34mINFO[0m	registry/consul.go:81	Service ID: user_service-0.0.0.0:3001
+
+2024-06-07 04:29:29	[34mINFO[0m	registry/consul.go:79	Registering service with name: user_service
+
+2024-06-07 04:29:29	[34mINFO[0m	registry/consul.go:80	Service address: 0.0.0.0:3001
+
+2024-06-07 04:29:29	[34mINFO[0m	registry/consul.go:81	Service ID: user_service-0.0.0.0:3001
+
