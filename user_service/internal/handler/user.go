@@ -150,6 +150,70 @@ func (*UserService) UserInfo(ctx context.Context, req *user.UserInfoRequest) (re
 	return resp, nil
 }
 
+func (*UserService) UpdateUserFav(ctx context.Context, req *user.UpdateUserFavRequest) (resp *user.UpdateUserFavResponse, err error) {
+	resp = new(user.UpdateUserFavResponse)
+	var usercount *model.UserCount
+	key := fmt.Sprintf("%s:%s:%s", "user", "count", strconv.FormatInt(req.UserId, 10))
+
+	// 检查 key 是否存在
+	exists, err := global.Redis.Exists(ctx, key).Result()
+	if err != nil {
+		resp.StatusCode = 1
+		resp.StatusMsg = "缓存错误"
+		return resp, err
+	}
+
+	if exists > 0 {
+		// 获取缓存中的 usercount
+		userString, err := global.Redis.Get(ctx, key).Result()
+		if err != nil {
+			resp.StatusCode = 1
+			resp.StatusMsg = "缓存错误"
+			return resp, fmt.Errorf("usercount缓存错误：%v", err)
+		}
+
+		// 反序列化
+		err = json.Unmarshal([]byte(userString), &usercount)
+		if err != nil {
+			resp.StatusCode = 1
+			resp.StatusMsg = "缓存错误"
+			return resp, err
+		}
+	} else {
+		resp.StatusCode = 1
+		resp.StatusMsg = "缓存错误"
+		return resp, nil
+	}
+
+	// 更新 usercount 中的 total_favorited
+	delta := int64(req.Delta) // 将 req.Delta 转换为 int64
+	if req.Type == 1 {
+		usercount.TotalFavorited += delta
+	} else if req.Type == 2 {
+		usercount.TotalFavorited -= delta
+	}
+
+	// 将更新后的 usercount 序列化并保存回 Redis
+	updatedUserString, err := json.Marshal(usercount)
+	if err != nil {
+		resp.StatusCode = 1
+		resp.StatusMsg = "缓存错误"
+		return resp, err
+	}
+
+	err = global.Redis.Set(ctx, key, updatedUserString, 0).Err()
+	if err != nil {
+		resp.StatusCode = 1
+		resp.StatusMsg = "缓存错误"
+		return resp, err
+	}
+
+	// 操作成功
+	resp.StatusCode = global.SuccessCode
+	resp.StatusMsg = global.GetErrorMessage(global.SuccessCode)
+	return resp, nil
+}
+
 func BuildUser(u *model.User, uc *model.UserCount) *user.User {
 	userinfo := user.User{
 		Id:              u.ID,
