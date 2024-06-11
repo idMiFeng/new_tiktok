@@ -75,7 +75,19 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-
+	//监听删除评论信息
+	c2, _ := rocketmq.NewPushConsumer(
+		consumer.WithGroupName(config.Conf.RocketMQConfig.GroupID),
+		consumer.WithNsResolver(primitive.NewPassthroughResolver([]string{config.Conf.RocketMQConfig.Addr})),
+	)
+	err = c2.Subscribe(config.Conf.RocketMQConfig.Topic.CommentDelete, consumer.MessageSelector{}, service.CommentMessageHandler)
+	if err != nil {
+		fmt.Println(err.Error())
+	}
+	err = c2.Start()
+	if err != nil {
+		panic(err)
+	}
 	// 6. 启动rpc服务
 	StartService()
 

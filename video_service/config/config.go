@@ -26,7 +26,8 @@ type RocketMQConfig struct {
 }
 
 type RocketMQTopicConfig struct {
-	VideoPush string `mapstructure:"video_push"`
+	VideoPush     string `mapstructure:"video_push"`
+	CommentDelete string `mapstructure:"comment_delete"`
 }
 
 type LogConfig struct {

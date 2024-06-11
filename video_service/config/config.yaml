@@ -29,3 +29,4 @@ rocketmq:
   group_id: video_srv
   topic:
     video_push: video_push
+    comment_delete: comment_delete

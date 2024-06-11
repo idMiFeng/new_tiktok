@@ -15,6 +15,7 @@ import (
 	"video_service/logger"
 )
 
+// CommentAction 评论操作
 func (*VideoService) CommentAction(ctx context.Context, req *video.CommentActionRequest) (resp *video.CommentActionResponse, err error) {
 	resp = new(video.CommentActionResponse)
 	commentModel := model.GetCommentInstance()
@@ -74,7 +75,12 @@ func (*VideoService) CommentAction(ctx context.Context, req *video.CommentAction
 		}
 
 		// 删除缓存
-		err = global.Redis.ZRemRangeByScore(ctx, commentKey, fmt.Sprintf("%d", req.CommentId), fmt.Sprintf("%d", req.CommentId)).Err()
+		//err = global.Redis.ZRemRangeByScore(ctx, commentKey, fmt.Sprintf("%d", req.CommentId), fmt.Sprintf("%d", req.CommentId)).Err()
+		//if err != nil {
+		//	return &video.CommentActionResponse{StatusCode: global.CacheErrorCode, StatusMsg: global.GetErrorMessage(global.CacheErrorCode)}, nil
+		//}
+		// 发送删除评论消息到 RocketMQ
+		err = service.SendCommentDeleteMessage(uint(req.CommentId))
 		if err != nil {
 			return &video.CommentActionResponse{StatusCode: global.CacheErrorCode, StatusMsg: global.GetErrorMessage(global.CacheErrorCode)}, nil
 		}
@@ -95,6 +101,8 @@ func (*VideoService) CommentAction(ctx context.Context, req *video.CommentAction
 
 	return resp, nil
 }
+
+// CommentList 获取评论列表
 func (*VideoService) CommentList(ctx context.Context, req *video.CommentListRequest) (resp *video.CommentListResponse, err error) {
 	resp = &video.CommentListResponse{}
 	commentKey := fmt.Sprintf("video:comment:%d", req.VideoId)
